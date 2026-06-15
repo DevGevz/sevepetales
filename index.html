@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sève & Pétales | Le Blog Expert de la Nature et de la Botanique</title>
+    <meta name="description" content="Découvrez nos conseils d'experts sur l'entretien des plantes d'intérieur, la culture des fleurs de saison et l'aménagement de votre jardin.">
+    <link rel="canonical" href="https://www.votredomaine.com/">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES DESIGN (Palette Calme & Naturelle) --- */
+        :root {
+            --color-bg: #F9F8F6;          /* Crème doux */
+            --color-surface: #FFFFFF;     /* Blanc pur pour les cartes */
+            --color-primary: #3B4D41;     /* Vert Sauge Foncé (Texte & Éléments forts) */
+            --color-secondary: #8FA89B;   /* Vert Sauge Doux */
+            --color-accent: #D39E82;      /* Terre cuite douce (Boutons, Call-to-action) */
+            --color-text: #2C3531;        /* Presque noir organique */
+            --color-text-light: #606C64;  /* Gris-vert pour le texte secondaire */
+            --font-title: 'Playfair Display', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', Helvetica, sans-serif;
+            --max-width: 1200px;
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET & BASES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* --- ACCESSIBILITÉ --- */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* --- STRUCTURE & LAYOUT --- */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- EMPLACEMENTS ADSENSE (UX-Friendly) --- */
+        .adsense-placeholder {
+            background-color: #F0EDE9;
+            border: 1px dashed #D1C9C0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 40px auto;
+            border-radius: var(--radius);
+        }
+        .ads-top { width: 100%; max-width: 728px; height: 90px; }
+        .ads-sidebar { width: 100%; height: 600px; margin: 0 0 30px 0 !important; }
+        .ads-inline { width: 100%; height: 250px; }
+
+        /* --- HEADER & NAVIGATION --- */
+        .main-header {
+            background-color: rgba(249, 248, 246, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #EAE6E1;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .main-nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            position: relative;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--color-primary);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+        }
+
+        /* --- GRILLE PRINCIPALE (Avec Sidebar SEO & Monetization) --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 992px) {
+            .main-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        /* --- ZONE ARTICLES (UX de lecture soignée) --- */
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .article-card {
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(59, 77, 65, 0.04);
+            display: grid;
+            grid-template-columns: 1fr;
+            transition: var(--transition);
+            border: 1px solid #EAE6E1;
+        }
+
+        @media (min-width: 600px) {
+            .article-card {
+                grid-template-columns: 40% 60%;
+            }
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(59, 77, 65, 0.08);
+        }
+
+        .article-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            background-color: #EAE6E1;
+        }
+
+        .article-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .article-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .read-more:hover {
+            color: var(--color-accent);
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .sidebar-widget {
+            background: var(--color-surface);
+            padding: 32px;
+            border-radius: var(--radius);
+            border: 1px solid #EAE6E1;
+        }
+
+        .widget-title {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-secondary);
+        }
+
+        /* Liens de catégories SEO-Friendly */
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            margin-bottom: 12px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--color-primary);
+            padding-left: 4px;
+        }
+
+        /* Newsletter (UX Rétention) */
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #D1C9C0;
+            background: var(--color-bg);
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--color-accent);
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--color-primary);
+            color: #EAE6E1;
+            padding: 60px 0 30px 0;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #C2CBC5;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #9CA8A0;
+        }
+
+        /* --- RESPONSIVE HAMBURGER (SIMPLIFIÉ) --- */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .menu-toggle { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#content" class="sr-only">Passer au contenu principal</a>
+
+    <header class="main-header">
+        <div class="container nav-container">
+            <a href="/" class="logo" aria-label="Sève et Pétales - Accueil">Sève & Pétales</a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="/" class="active">Accueil</a></li>
+                    <li><a href="/plantes-interieur">Plantes d'Intérieur</a></li>
+                    <li><a href="/fleurs-saison">Fleurs de Saison</a></li>
+                    <li><a href="/potager-jardin">Jardin & Potager</a></li>
+                    <li><a href="/conseils-entretien">Conseils d'Entretien</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="adsense-placeholder ads-top">
+            Zone Publicitaire - Leaderboard (728x90)
+        </div>
+    </div>
+
+    <main class="container" id="content">
+        
+        <section class="hero">
+            <h1>Le soin des plantes, élevé au rang d'art de vivre.</h1>
+            <p>Conseils botaniques honnêtes, guides d'entretien illustrés et secrets de floraison pour transformer votre quotidien en un écrin de verdure.</p>
+        </section>
+
+        <div class="main-grid">
+            
+            <section class="articles-list" aria-label="Derniers articles de blog">
+                
+                <article class="article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80" alt="Monstera Deliciosa dans un salon lumineux" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">Plantes d'Intérieur • 5 min de lecture</div>
+                        <h2 class="article-title">
+                            <a href="/dompter-monstera-deliciosa">Comment dompter votre Monstera Deliciosa : le guide ultime</a>
+                        </h2>
+                        <p class="article-excerpt">Arrosage, exposition, bouturage... Apprenez à offrir l'environnement parfait à cette icône tropicale pour obtenir des feuilles géantes et superbement perforées.</p>
+                        <a href="/dompter-monstera-deliciosa" class="read-more" aria-label="Lire l'article complet sur la Monstera Deliciosa">
+                            Lire l'article <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <div class="adsense-placeholder ads-inline">
+                    Zone Publicitaire - In-Feed (Annonce Native)
+                </div>
+
+                <article class="article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80" alt="Gros plan sur des roses anciennes de couleur poudrée" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">Fleurs de Saison • 7 min de lecture</div>
+                        <h2 class="article-title">
+                            <a href="/roses-anciennes-entretien">Le secret des roses anciennes pour un parfum inoubliable</a>
+                        </h2>
+                        <p class="article-excerpt">Moins fragiles qu'il n'y paraît, les roses anciennes apportent poésie et effluves enivrantes au jardin. Découvrez notre sélection variétale et nos astuces de taille.</p>
+                        <a href="/roses-anciennes-entretien" class="read-more" aria-label="Lire l'article complet sur les roses anciennes">
+                            Lire l'article <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+            </section>
+
+            <aside class="sidebar" aria-label="Compléments d'information">
+                
+                <div class="adsense-placeholder ads-sidebar">
+                    Zone Publicitaire - Skyscraper (300x600)
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Explorer par univers</h3>
+                    <ul class="category-list">
+                        <li><a href="/plantes-interieur"><span>🌿 Plantes d'intérieur</span> <span>(24)</span></a></li>
+                        <li><a href="/fleurs-saison"><span>🌸 Fleurs de saison</span> <span>(18)</span></a></li>
+                        <li><a href="/potager-jardin"><span>🏡 Potager & Extérieur</span> <span>(15)</span></a></li>
+                        <li><a href="/rempotage-soins"><span>🧪 Soins & Rempotage</span> <span>(31)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">La Lettre Botanique</h3>
+                    <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 16px;">Recevez chaque mois nos carnets de saison et astuces exclusives directement dans votre boîte mail.</p>
+                    <form class="newsletter-form" action="#" method="POST">
+                        <input type="email" placeholder="Votre adresse email" required aria-label="Votre adresse email">
+                        <button type="submit">S'inspirer</button>
+                    </form>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-title">Sève & Pétales</div>
+                <p style="font-size: 0.9rem; color: #C2CBC5;">Un regard d'expert, doux et sourcé, sur le monde végétal qui nous entoure.</p>
+            </div>
+            <div>
+                <div class="footer-title">Navigation</div>
+                <ul class="footer-links">
+                    <li><a href="/a-propos">À propos de l'auteur</a></li>
+                    <li><a href="/contact">Contactez-nous</a></li>
+                    <li><a href="/mentions-legales">Mentions Légales</a></li>
+                    <li><a href="/politique-cookies">Politique de Cookies (AdSense)</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Populaire en ce moment</div>
+                <ul class="footer-links">
+                    <li><a href="/entretenir-orchidee">Sauver une orchidée fanée</a></li>
+                    <li><a href="/plantes-ombre">Quelles plantes pour un salon sombre ?</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sève & Pétales. Tous droits réservés. Conçu pour les amoureux de la nature.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
